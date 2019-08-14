@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a asp-controller="Home" asp-action="Index">Back to home page</a>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Product p in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(m => p.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => p.ProductPrice)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
